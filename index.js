@@ -1,7 +1,10 @@
-function takeANumber(katzDeliLine, personName)
+var counter = 0;
+function takeANumber(katzDeliLine, counter)
 {
-  katzDeliLine.push(personName);
-  return "Welcome, " + personName + ". You are number " + katzDeliLine.length + " in line.";
+  counter = counter + 1;
+  
+  katzDeliLine.push(counter);
+  return counter;
 }
 
 function nowServing(katzDeliLine)
@@ -10,8 +13,8 @@ function nowServing(katzDeliLine)
     return "There is nobody waiting to be served!";
   else
   {
-    var firstPerson = katzDeliLine.shift();
-    return `Currently serving ${firstPerson}.`;
+    var ticket = katzDeliLine.shift();
+    return `Currently serving ${ticket}.`;
   }
 }
 
@@ -31,12 +34,6 @@ function currentLine(katzDeliLine)
       if(i !== katzDeliLine.length-1)
         str+= ', ';
     }
-    // katzDeliLine.forEach(function(value, index)
-    // {
-    //   str += `${index+1}. ${value}`;
-    //   if(index !== katzDeliLine.length-1)
-    //   str += ", ";
-    // });
     return "The line is currently: " + str;
   }
 }
